@@ -15,43 +15,15 @@ This repository contains a **machine learning-based power modeling solution** fo
 - ✅ **Environmental Intelligence** (temperature, battery, CPU modeling)
 - ✅ **Realistic IoT Behavior** (probabilistic state transitions)
 
----
-
-## 📚 Documentation
-
-We provide comprehensive documentation for evaluators and developers:
-
-| Document | Purpose | Read Time |
-|----------|---------|-----------|
-| [EVALUATOR_QUICKSTART.md](EVALUATOR_QUICKSTART.md) | Quick validation guide | 5 min |
-| [IMPLEMENTATION_GUIDE.md](IMPLEMENTATION_GUIDE.md) | Complete technical documentation | 20 min |
-| [CODE_WALKTHROUGH.md](CODE_WALKTHROUGH.md) | Line-by-line code explanation | 30 min |
-| [ARCHITECTURE_DIAGRAMS.md](ARCHITECTURE_DIAGRAMS.md) | Visual system overview | 15 min |
-
-**For Evaluators**: Start with [EVALUATOR_QUICKSTART.md](EVALUATOR_QUICKSTART.md)
-
----
 
 ## 🚀 Build & Run
 
 ### Prerequisites
-- **SystemC 2.3.4+** or **Conan** for dependency management
+- **SystemC 2.3.4+**
 - **CMake 3.5+**
 - **C++17** compatible compiler (GCC 7+, Clang 5+, MSVC 2017+)
 
-### Option 1: Using Conan (Recommended)
-
-```bash
-# Install dependencies and build
-mkdir build && cd build
-conan install .. -s build_type=Release
-conan build .. -s build_type=Release
-
-# Run simulation (generates results in ~30 seconds)
-./testbench_dvconchallenge
-```
-
-### Option 2: Direct SystemC
+### Direct SystemC
 
 ```bash
 # Set SystemC installation path
@@ -190,10 +162,6 @@ DVCON-Europe-Challenge/
 ├── CMakeLists.txt                    # Build configuration
 ├── conanfile.py                      # Dependency management
 ├── README.md                         # This file
-├── EVALUATOR_QUICKSTART.md           # Quick validation guide
-├── IMPLEMENTATION_GUIDE.md           # Complete technical docs
-├── CODE_WALKTHROUGH.md               # Detailed code analysis
-└── ARCHITECTURE_DIAGRAMS.md          # Visual system overview
 ```
 
 ---
@@ -224,40 +192,6 @@ grep "Boot" seai_competition_results.csv | wc -l
 # Expected: > 0 (Boot state present)
 ```
 
----
-
-## 🏆 Competitive Advantages
-
-### What Makes This Implementation Stand Out
-
-1. **Authentic ML**
-   - Real neural network training (not simulated)
-   - Full backpropagation algorithm
-   - 1,505 trainable parameters
-
-2. **Intelligent Behavior**
-   - Probabilistic state machine
-   - Environmental factor modeling
-   - Realistic sensor noise
-
-3. **Data-Driven**
-   - Trained on 4,100+ reference samples
-   - Learns power patterns from real measurements
-   - Adapts to different operating conditions
-
-4. **Production Quality**
-   - Clean C++17 code
-   - Smart pointer memory management
-   - Comprehensive error handling
-   - Extensive documentation
-
-5. **Innovation**
-   - Ensemble prediction methods
-   - 25+ engineered features
-   - State-specific noise modeling
-   - Temperature/battery/CPU effects
-
----
 
 ## 📈 Performance Metrics
 
@@ -286,120 +220,3 @@ ML Model Performance:
 ```
 
 ---
-
-## 🎓 For Developers
-
-### Key Classes
-
-- **ChampionshipMLPredictor**: Main ML orchestrator
-- **ChampionshipNeuralNetwork**: Multi-layer perceptron
-- **StatePowerAnalyzer**: State-specific power analysis
-- **AdvancedFeatureExtractor**: 25+ feature engineering
-- **ChampionshipQueue**: Probabilistic state generator
-- **ChampionshipTestbenchModule**: SystemC simulation controller
-
-### Key Functions
-
-```cpp
-// Neural network training (Line 108, ml_power_predictor.cpp)
-void train_with_backprop(int epochs, double validation_split);
-
-// Power prediction (Line 907, ml_power_predictor.cpp)
-double predict_power_championship(int state, double time, history);
-
-// State machine (Line 327, main.cpp)
-void queue_generation();  // Probabilistic transitions
-
-// Feature extraction (Line 454, ml_power_predictor.cpp)
-PredictionFeatures extract_comprehensive_features(...);
-```
-
----
-
-## 🔧 Troubleshooting
-
-### Common Issues
-
-**Issue**: "Failed to load training data"
-```bash
-# Solution: Check reference data exists
-ls -la ref_csv/DVConChallengeLongTimeMeasurement_States.csv
-```
-
-**Issue**: "SYSTEMC_HOME not set"
-```bash
-# Solution: Export SystemC path
-export SYSTEMC_HOME=/usr/local/systemc-2.3.4
-```
-
-**Issue**: Compilation errors
-```bash
-# Solution: Ensure C++17 support
-g++ --version  # Should be GCC 7+ or Clang 5+
-```
-
----
-
-## 📞 Support
-
-### Documentation Hierarchy
-
-1. **Quick Start**: This README
-2. **Quick Validation**: [EVALUATOR_QUICKSTART.md](EVALUATOR_QUICKSTART.md)
-3. **Technical Deep Dive**: [IMPLEMENTATION_GUIDE.md](IMPLEMENTATION_GUIDE.md)
-4. **Code Analysis**: [CODE_WALKTHROUGH.md](CODE_WALKTHROUGH.md)
-5. **Visual Guide**: [ARCHITECTURE_DIAGRAMS.md](ARCHITECTURE_DIAGRAMS.md)
-
-### For Evaluators
-
-Start with [EVALUATOR_QUICKSTART.md](EVALUATOR_QUICKSTART.md) for a 5-minute validation checklist.
-
-### For Technical Review
-
-Read [IMPLEMENTATION_GUIDE.md](IMPLEMENTATION_GUIDE.md) for complete system documentation.
-
----
-
-## 🎯 Competition Submission
-
-### Deliverables
-
-1. ✅ **Source Code**: Complete implementation in `src/`
-2. ✅ **Build System**: CMake + Conan support
-3. ✅ **Documentation**: 4 comprehensive guides
-4. ✅ **Reference Data**: Training CSV in `ref_csv/`
-5. ✅ **Output Examples**: Generated CSV and performance reports
-
-### Evaluation Ready
-
-- All DVCon specifications met
-- Real machine learning implemented
-- Comprehensive documentation provided
-- Code quality production-grade
-- Performance metrics excellent
-
----
-
-## 🌟 Summary
-
-This implementation represents a **competition-winning solution** that:
-
-✅ **Complies 100%** with DVCon Challenge specifications
-✅ **Implements genuine ML** (not fake/simulated)
-✅ **Demonstrates innovation** in environmental modeling
-✅ **Exhibits realistic behavior** through probabilistic state machine
-✅ **Provides excellent documentation** for evaluation
-
-**Ready for DVCon Europe 2025 Competition!** 🏆
-
----
-
-## 📖 More Information
-
-- **DVCon Challenge**: [https://dvconchallenge.de/](https://dvconchallenge.de/)
-- **Participant Guide**: [https://dvconchallenge.de/index.php/guide-for-participants/](https://dvconchallenge.de/index.php/guide-for-participants/)
-- **SystemC**: [https://systemc.org/](https://systemc.org/)
-
----
-
-**Implementation Complete | Documentation Comprehensive | Competition Ready** ✨
